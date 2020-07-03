@@ -53,15 +53,21 @@ aB3$5678
 
 ## Something new for git
 
+This is not required but something to consider to enhance your git knowledge.
+
 When you clone your personal copy, you will have the default `origin` remote
 
-Add another remote to point to the summ
+Add another remote to point to the SummerOfCode2020 version.
+
+Run this command:
 
 `git remote add upstream https://github.com/SummerOfCode2020/week-05-password-validator`
 
-Then run this command to see that you now have two remotes.
+Then run this command to see that you now have two remote:
 
-You are always pusing to your origin.  You now have the remote that you can pull from in case the `SummerOfCode2020` repo is updated. Epic. Or as X would say "Word" 😎
+`git remote -v`
+
+Note that you are *always* still pusing to your origin. With this extra remote, you can now pull from the `SummerOfCode2020` repo in case it is ever updated and you want to pull that update. Epic. Or as X would say "Word" 😎
 
 ## Notes
 
