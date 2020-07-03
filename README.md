@@ -33,6 +33,7 @@ As you complete code to pass each individual rule:
 - Perform all git commands to push your progress to github
 - Open a PR after your first push
 - Add JR and all TAs to the PR
+  - Rob Perron's GitHub username: orbitalbitmap
 
 ## Coding Challenge Instructions
 
