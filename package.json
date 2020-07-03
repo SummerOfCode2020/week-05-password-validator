@@ -4,9 +4,9 @@
   "description": "",
   "main": ".eslintrc.js",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint --format codeframe .",
-    "lint:fix": "./node_modules/.bin/eslint --fix --format codeframe .",
-    "test": "./node_modules/.bin/mocha tests.js"
+    "lint": "eslint --format codeframe .",
+    "lint:fix": "eslint --fix --format codeframe .",
+    "test": "mocha -w"
   },
   "repository": {
     "type": "git",
