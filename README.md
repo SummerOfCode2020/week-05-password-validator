@@ -51,6 +51,18 @@ Must contain at least one
 
 aB3$5678
 
+## Something new for git
+
+When you clone your personal copy, you will have the default `origin` remote
+
+Add another remote to point to the summ
+
+`git remote add upstream https://github.com/SummerOfCode2020/week-05-password-validator`
+
+Then run this command to see that you now have two remotes.
+
+You are always pusing to your origin.  You now have the remote that you can pull from in case the `SummerOfCode2020` repo is updated. Epic. Or as X would say "Word" 😎
+
 ## Notes
 
 Mocha is being executed with the `-w` option which is `watch mode` meaning that your tests should rerun every time you save a change.
