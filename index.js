@@ -35,7 +35,7 @@ function parseCharacters(password) {
     switch (true) {
       // First test for special characters and change our flag to true
       // by scanning our list of special characters and making sure
-      // our character in question is not in that list
+      // our character in question is on the list.
       case (specialCharacterList.indexOf(character) !== -1):
         secureCharacterFlags.special = true
         break
