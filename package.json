@@ -2,7 +2,7 @@
   "name": "password-validator",
   "version": "1.0.0",
   "description": "",
-  "main": ".eslintrc.js",
+  "main": "index.js",
   "scripts": {
     "lint": "eslint --format codeframe .",
     "lint:fix": "eslint --fix --format codeframe .",
