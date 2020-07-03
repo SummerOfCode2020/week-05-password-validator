@@ -10,14 +10,14 @@ In the initial commit to this project, you have been provided with a basic proje
 
 ## Install dependencies from package.json and Test the Code
 
-Exectute any of these commands to intall required modules and run tests. These are all equivelent. Which do you prefer?
+Execute any of these commands to install required modules and run tests. These are all equivalent. Which do you prefer?
 
-- `npm install` to perform the install 
+- `npm install` to perform the install
 - followed by command `npm test` to then run tests
 
 OR
 
-- `npm install test` to run the install immediately follwed by running tests
+- `npm install test` to run the install immediately followed by running tests
 
 OR
 
@@ -38,9 +38,10 @@ As you complete code to pass each individual rule:
 
 Your task is to create a `validatePassword` function which will return `true` when the password meets all requirements.
 
-* minimum of 8 characters
+- minimum of 8 characters
 
 Must contain at least one
+
 - lower case letter
 - upper case letter
 - numeric value
@@ -67,4 +68,3 @@ Take plenty of breaks.
 Schedule time with others and with TAs as needed after the holiday weekend.
 
 Have a great 4th of July!
-
