@@ -8,13 +8,8 @@ function validatePassword(password) {
   const secureCharacters = parseCharacters(password)
 
   // if all of the above is true, we have a good password!
-  if (secureLength === true && secureCharacters === true) {
-    // return it as true
-    return true
-  }
-
-  // if the above was not true, return false as our password is not valid
-  return false
+  // return true if both are true, and false if they are both false
+  return (secureLength === true && secureCharacters === true)
 }
 
 // create our function to parse each character
@@ -71,17 +66,12 @@ function parseCharacters(password) {
 }
 
 // create quick function to parse our specialCharactersFlag to make sure
-// they are all true
+// they are all true. Check if any values in the object are equal to false, 
+// if so this is not a valid password. We can check this by seeing if any of our
+// keys have a value of false if so then the password is not meeting our requirements, 
+// return false. If there is no false, we are all good so return true.
 function verifySpecialCharacterFlags(specialCharactersFlags) {
-  // check if any values in the object are equal to false, if so this is not a valid
-  // password
-  if (Object.values(specialCharactersFlags).includes(false)) {
-    // if any of our conditions were not met, return false
-    return false
-  }
-
-  // if none were false, they are all true, thus password is valid
-  return true
+  return !Object.values(specialCharactersFlags).includes(false)
 }
 
 
