@@ -3,9 +3,9 @@ function validatePassword(password) {
   let eightChar = true
   let oneUpperCase = true
   let finalValidation = true
-  let oneLowerCase = true
-  let numVal = true
-  let specChar = true
+  // let oneLowerCase = true
+  // let numVal = true
+  // let specChar = true
 
   if (password.length >= 8) {
     eightChar = true
@@ -16,55 +16,46 @@ function validatePassword(password) {
   }
 
   const arrPassword = password.split()
+  let upperCase = []
 
-  arrPassword.forEach((char) => {
-    if (char == char.toUpperCase()) {
+  for (let i = 0; i < arrPassword.length; i++) {
+    if (arrPassword[i] === arrPassword[i].toUpperCase()) {
+      upperCase.push(arrPassword[i])
+    }
+    if (upperCase.length >= 0) {
       oneUpperCase = true
     }
-    else {
+    if (upperCase.length < 1) {
       oneUpperCase = false
     }
-  })
-
-  arrPassword.forEach((char) => {
-    if (char == char.toLowerCase()) {
-      oneLowerCase = true
-    }
-    else {
-      oneLowerCase = false
-    }
-  })
-
-  arrPassword.forEach((char) => {
-    if (Number.isInteger(char)) {
-      numVal = true
-    }
-    else {
-      numVal = false
-    }
-  })
-
-  let format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/
-
-  if (format.test(password)) {
-    specChar = true;
-  } else {
-    specChar = false;
   }
+  
+  // let lowerCase = []
 
-  if (eightChar == true && oneUpperCase == true &&
-    oneLowerCase == true && numVal == true && specChar == true) {
-      
+  // for (let i = 0; i < arrPassword.length; i++) {
+  //   if (arrPassword[i] === arrPassword[i].toLowerCase()) {
+  //     lowerCase.push(arrPassword[i])
+  //   }
+  //   if (lowerCase.length >= 0) {
+  //     oneUpperCase = true
+  //   }
+  //   if (lowerCase.length < 1) {
+  //     oneUpperCase = false
+  //   }
+  // }
+  //&&oneLowerCase == true && numVal == true && specChar == true
+
+  if (eightChar === true && oneUpperCase === true ) {
+
     finalValidation = true
   }
 
   else {
     finalValidation = false
   }
+  return finalValidation
 
-    return finalValidation
-
-  }
-
-module.exports = validatePassword
+}
+console.log(validatePassword('p455w0Rd'))
+module.exports = validatePassword;
 
