@@ -4,8 +4,8 @@ function validatePassword(password) {
   let oneUpperCase = true
   let finalValidation = true
   let oneLowerCase = true
-  // let numVal = true
-  // let specChar = true
+  let numVal = true
+  let specChar = true
 
   if (password.length >= 8) {
     eightChar = true
@@ -35,15 +35,36 @@ function validatePassword(password) {
     }
   })
 
-  if (eightChar == true && oneUpperCase == true && oneLowerCase == true) {
+  arrPassword.forEach((char) => {
+    if (Number.isInteger(char)) {
+      numVal = true
+    }
+    else {
+      numVal = false
+    }
+  })
+
+  let format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/
+
+  if (format.test(password)) {
+    specChar = true;
+  } else {
+    specChar = false;
+  }
+
+  if (eightChar == true && oneUpperCase == true &&
+    oneLowerCase == true && numVal == true && specChar == true) {
+      
     finalValidation = true
   }
 
   else {
-   finalValidation = false
+    finalValidation = false
   }
-  return finalValidation
-}
+
+    return finalValidation
+
+  }
 
 module.exports = validatePassword
 
