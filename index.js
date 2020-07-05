@@ -5,7 +5,7 @@ function validatePassword(password) {
   let finalValidation = true
   let oneLowerCase = true
   let numVal = true
-  // let specChar = true
+  let specChar = true
 
   if (password.length >= 8) {
     eightChar = true
@@ -19,7 +19,7 @@ function validatePassword(password) {
   let upperCase = []
 
   for (let i = 0; i < arrPassword.length; i++) {
-    if (arrPassword[i] === arrPassword[i].toUpperCase()) {
+    if (arrPassword[i] == arrPassword[i].toUpperCase()) {
       upperCase.push(arrPassword[i])
     }
     if (upperCase.length >= 0) {
@@ -30,36 +30,37 @@ function validatePassword(password) {
     }
   }
 
-  let lowerCase = []
+  let lowerCase = /[a-z]/
 
-  for (let i = 0; i < arrPassword.length; i++) {
-    if (arrPassword[i] === arrPassword[i].toLowerCase()) {
-      lowerCase.push(arrPassword[i])
-    }
-    if (lowerCase.length >= 0) {
-      oneLowerCase = true
-    }
-    if (lowerCase.length < 1) {
-      oneLowerCase = false
-    }
+  if (lowerCase.test(password)) {
+    oneLowerCase = true
+  }
+  else {
+    oneLowerCase = false
   }
 
-  let oneNumber = []
-  for (let i = 0; i < arrPassword.length; i++) {
-    if (arrPassword[i] === Number.isInteger(arrPassword[i])) {
-      oneNumber.push(arrPassword[i])
-    }
-    if (oneNumber.length >= 0) {
-      numVal = true
-    }
-    if (oneNumber.length < 1) {
-      numVal = false
-    }
+  
+
+  let allDigit = /[0-9]/
+
+  if (allDigit.test(password)) {
+    numVal = true
+  }
+  else {
+    numVal = false
   }
 
-  //  && specChar == true
+  let format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/
 
-  if (eightChar === true && oneUpperCase === true && lowerCase === true && numVal === true) {
+  if (format.test(password)) {
+
+    specChar = true
+  }
+  else {
+    specChar = false
+  }
+
+  if (eightChar == true && oneUpperCase == true && lowerCase == true && numVal == true && specChar == true) {
 
     finalValidation = true
   }
@@ -67,10 +68,17 @@ function validatePassword(password) {
   else {
     finalValidation = false
   }
-  return finalValidation
 
+  // return finalValidation
+  return oneLowerCase
+  // return oneUpperCase
+  // return numVal
 }
-console.log("no uppercase", validatePassword('p455w0Rd'))
-console.log("no number", validatePassword('Password!'))
+
+// console.log("no number should be false", validatePassword('Password!'))
+// console.log("no uppercase should be true", validatePassword('p455w0Rd'))
+// console.log("no special character, should be true", validatePassword('P455w0rd1!'))
+console.log(" lowercase should be false", validatePassword('P455W0RE!'))
+
 module.exports = validatePassword;
 

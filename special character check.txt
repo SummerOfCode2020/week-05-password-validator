@@ -1,0 +1,9 @@
+let format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/
+let specChar
+
+  if (format.test(password)) {
+    specChar = true
+  }
+  else {
+    specChar = false
+  }
