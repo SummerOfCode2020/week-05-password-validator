@@ -24,11 +24,13 @@ function validatePassword(password) {
     if (specialChar.indexOf(arrPassword[i]) >= 0) {
       specialArray.push(arrPassword.splice(i, 1));
       i = i - 1;
-      //adjust index after taking out the element so 
-      // command can continue to run and splice out the special character
+      //adjust index after taking out the special characters from the original password array. so 
+      // command can continue to run and splice out anymore special characters
+      //putting all special characters into new array called specialArray
     }
   }
 
+  //check to see if there are 1 or more special character
   if (specialArray.length >= 1) {
     specChar = true
   }
@@ -37,6 +39,9 @@ function validatePassword(password) {
     specChar = false
   }
 
+  //using same method as special character, 
+  //otherwise next two rules will consider numbers as lower and upper case and 
+  //allow an inaccurate test result
   const numbers = '0123456789'
   let numberArray = []
 
