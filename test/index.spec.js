@@ -21,7 +21,7 @@ describe('validatePassword', () => {
   })
 
   it('returns false when the password is missing an upper case letter', () => {
-    const valid = validatePassword('p455w0rD!')
+    const valid = validatePassword('p455w0rd!')
 
     expect(valid).to.equal(false)
   })

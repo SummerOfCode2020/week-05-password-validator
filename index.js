@@ -37,6 +37,26 @@ function validatePassword(password) {
     specChar = false
   }
 
+  const numbers = '0123456789'
+  let numberArray = []
+
+  for (let i = 0; i < arrPassword.length; i++) {
+    if (numbers.indexOf(arrPassword[i]) >= 0) {
+      numberArray.push(arrPassword.splice(i, 1));
+      i = i - 1;
+      //adjust index after taking out the element so 
+      // command can continue to run and splice out the numbers from original password
+    }
+  }
+
+  if (numberArray.length >= 1) {
+    numVal = true
+  }
+
+  else if (numberArray.length < 1) {
+    numVal = false
+  }
+
   let upperCase = []
 
   for (let i = 0; i < arrPassword.length; i++) {
@@ -76,20 +96,21 @@ function validatePassword(password) {
     finalValidation = false
   }
 
-  //return finalValidation
-  return oneLowerCase
-   // return oneUpperCase
+  return finalValidation
+  // return oneLowerCase
+  // return oneUpperCase
   // return numVal
   // return specChar
   // return arrPassword
   // return specialArray
+  // return numberArray
 }
 
-// console.log(validatePassword('paaawrDR!'))
-// console.log(" number should be false", validatePassword('Password!'))
- // console.log(" uppercase should be true", validatePassword('paa1wrre!'))
- // console.log(" special character, should be true", validatePassword('P455w0RD'))
- //console.log(" lowercase should be false", validatePassword('PAAAWIRE'))
+//console.log("all true", validatePassword('paa.awrdr!'))
+//console.log(" number should be false", validatePassword('Pas3swo5rd!'))
+// console.log(" uppercase should be true", validatePassword('paa1wrre!'))
+// console.log(" special character, should be true", validatePassword('P455w0RD'))
+//console.log(" lowercase should be false", validatePassword('PAAAWIRE'))
 // console.log("  should be false", validatePassword('PaaaWaRD!'))
 
 module.exports = validatePassword;
