@@ -4,9 +4,11 @@ function validatePassword(pword) {
   const minLength = 8
   const lower = 'abcdefghijklmnopqrstuvwxyz'
   const upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  const digit = '0123456789'
   let lengthCheck = false
   let lowerCheck = false
   let upperCheck = false
+  let numberCheck = false
 
   if (pword.length >= minLength) {
     lengthCheck = true
@@ -19,8 +21,11 @@ function validatePassword(pword) {
     if (upper.search(pword[x]) >= 0) {
       upperCheck = true
     }
+    if (digit.search(pword[x]) >= 0) {
+      numberCheck = true
+    }
   }
 
-  return lengthCheck && lowerCheck && upperCheck
+  return lengthCheck && lowerCheck && upperCheck && numberCheck
 }
 module.exports = validatePassword
