@@ -1,4 +1,3 @@
-
 function validatePassword(password) {
   let eightChar = true
   let oneUpperCase = true
@@ -15,41 +14,57 @@ function validatePassword(password) {
     eightChar = false
   }
 
-  let upperCase = /[A-Z]/
+  let arrPassword = password.split('')
 
-  if (upperCase.test(password)) {
+  const specialChar = '!@#$%^&*()_+`~'
+  let specialArray = []
+  // new array to store the special characters sliced from the original password
+
+  for (let i = 0; i < arrPassword.length; i++) {
+    if (specialChar.indexOf(arrPassword[i]) >= 0) {
+      specialArray.push(arrPassword.splice(i, 1));
+      i = i - 1;
+      //adjust index after taking out the element so 
+      // command can continue to run and splice out the special character
+    }
+  }
+
+  if (specialArray.length >= 1) {
+    specChar = true
+  }
+
+  else if (specialArray.length < 1) {
+    specChar = false
+  }
+
+  let upperCase = []
+
+  for (let i = 0; i < arrPassword.length; i++) {
+    if (arrPassword[i] == arrPassword[i].toUpperCase()) {
+      upperCase.push(arrPassword[i])
+    }
+  }
+
+  if (upperCase.length >= 1) {
     oneUpperCase = true
   }
-  else {
+  else if (upperCase.length < 1) {
     oneUpperCase = false
   }
 
-  let lowerCase = /[a-z]/
+  let lowerCase = []
 
-  if (lowerCase.test(password)) {
+  for (let i = 0; i < arrPassword.length; i++) {
+    if (arrPassword[i] == arrPassword[i].toLowerCase()) {
+      lowerCase.push(arrPassword[i])
+    }
+  }
+
+  if (lowerCase.length >= 1) {
     oneLowerCase = true
   }
-  else {
+  else if (lowerCase.length < 1) {
     oneLowerCase = false
-  }
-
-  let allDigit = /[0-9]/
-
-  if (allDigit.test(password)) {
-    numVal = true
-  }
-  else {
-    numVal = false
-  }
-
-  let format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/
-
-  if (format.test(password)) {
-
-    specChar = true
-  }
-  else {
-    specChar = false
   }
 
   if (eightChar == true && oneUpperCase == true && oneLowerCase == true && numVal == true && specChar == true) {
@@ -61,18 +76,23 @@ function validatePassword(password) {
     finalValidation = false
   }
 
-   return finalValidation
-  // return oneLowerCase
-  // return oneUpperCase
+  //return finalValidation
+  return oneLowerCase
+   // return oneUpperCase
   // return numVal
   // return specChar
+  // return arrPassword
+  // return specialArray
 }
 
-// console.log("no number should be false", validatePassword('Password!'))
-// console.log("no uppercase should be true", validatePassword('p455w0Rd'))
-// console.log("no special character, should be true", validatePassword('P455w0rd1!'))
-// console.log(" lowercase should be false", validatePassword('P455W0RE!'))
-console.log("  should be false", validatePassword('PaaaWaRD!'))
+// console.log(validatePassword('paaawrDR!'))
+// console.log(" number should be false", validatePassword('Password!'))
+ // console.log(" uppercase should be true", validatePassword('paa1wrre!'))
+ // console.log(" special character, should be true", validatePassword('P455w0RD'))
+ //console.log(" lowercase should be false", validatePassword('PAAAWIRE'))
+// console.log("  should be false", validatePassword('PaaaWaRD!'))
 
 module.exports = validatePassword;
+
+
 
