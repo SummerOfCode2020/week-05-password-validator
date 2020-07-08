@@ -16,7 +16,11 @@ function validatePassword(password) {
           // Test for numeric value
             for (let i = 0; i < password.length; i++) {
               if (password.charCodeAt(i) >= 48 && password.charCodeAt(i) <= 57)
-                allRequirementsMet = true
+                // Test for special characters
+                for (let i = 0; i < password.length; i++) {
+                  if (password.charCodeAt(i) >= 33 && password.charCodeAt(i) <= 46)
+                    allRequirementsMet = true
+                }
             }
         }
     }
@@ -24,5 +28,4 @@ function validatePassword(password) {
 
   return allRequirementsMet
 }
-
 module.exports = validatePassword
