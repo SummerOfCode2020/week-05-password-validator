@@ -1,10 +1,10 @@
 function validatePassword (password) {
   var charCount = (password.length >= 8)
-  var checkUpCase = true;
-  var charLength = true;
-  var charLowCase = true;
-  var charNumVal = true;
-  var specCharVal = true;
+  var checkUpCase = true
+  var charLength = true
+  var charLowCase = true
+  var charNumVal = true
+  var specCharVal = true
 
 
 
