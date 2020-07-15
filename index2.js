@@ -47,11 +47,13 @@ function validatePassword (password) {
   } else {
       specCharVal = false
 
+
   }
 
   var passwordValidator = checkUpCase == true && charLength == true && charLowCase == true && charNumVal == true && specCharVal == true
   if (passwordValidator) {
     passwordValidator = true
+    
   } else {
     passwordValidator = false
   }
